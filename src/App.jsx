@@ -749,145 +749,13 @@ function App() {
 
             <div className="projects-grid">
               
-              {/* AI Receptionist - Square */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                onClick={() => setSelectedProject(projects.square)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/3gKAFtXAQ4Q/maxresdefault.jpg" 
-                      alt="AI Receptionist Square Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>AI Phone Receptionist - Square</h3>
-                    <p className="project-tagline">
-                      24/7 AI Receptionist that answers calls, understands "next Friday at 5", and books into Square Appointments
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.square.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* AI Receptionist - ResOS */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                onClick={() => setSelectedProject(projects.resos)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/Gip6iQEK8uk/maxresdefault.jpg" 
-                      alt="AI Receptionist ResOS Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>AI Phone Receptionist - ResOS</h3>
-                    <p className="project-tagline">
-                      24/7 AI Receptionist that answers calls, understands "tomorrow at 7", and books into ResOS (restaurant reservation software)
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.resos.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Chatbot - Nail Salon */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                onClick={() => setSelectedProject(projects.chatbot)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/3wIskqnjIq8/maxresdefault.jpg" 
-                      alt="Chatbot Nail Salon Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>Smart Booking Chatbot</h3>
-                    <p className="project-tagline">
-                      Voiceflow chatbot with live availability checking and real-time Square booking integration
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.chatbot.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CNC Monitoring */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                onClick={() => setSelectedProject(projects.cnc)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/KCIsbTH4HuA/maxresdefault.jpg" 
-                      alt="CNC Monitoring System Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>AI CNC Monitoring System</h3>
-                    <p className="project-tagline">
-                      Remote machine monitoring with real-time alerts, video feeds, and incident logging for shop owners
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.cnc.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
               {/* Kuwe Platform - AI Calling Agent Builder */}
               <motion.div 
                 className="project-showcase-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 0.5 }}
                 onClick={() => setSelectedProject(projects.kuweCallingAgent)}
               >
                 <div className="project-link">
@@ -920,7 +788,7 @@ function App() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
                 onClick={() => setSelectedProject(projects.kuweAutomation)}
               >
                 <div className="project-link">
@@ -940,6 +808,138 @@ function App() {
                     </p>
                     <div className="project-tech-tags">
                       {projects.kuweAutomation.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Receptionist - Square */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                onClick={() => setSelectedProject(projects.square)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/3gKAFtXAQ4Q/maxresdefault.jpg" 
+                      alt="AI Receptionist Square Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>AI Phone Receptionist - Square</h3>
+                    <p className="project-tagline">
+                      24/7 AI Receptionist that answers calls, understands "next Friday at 5", and books into Square Appointments
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.square.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Receptionist - ResOS */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                onClick={() => setSelectedProject(projects.resos)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/Gip6iQEK8uk/maxresdefault.jpg" 
+                      alt="AI Receptionist ResOS Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>AI Phone Receptionist - ResOS</h3>
+                    <p className="project-tagline">
+                      24/7 AI Receptionist that answers calls, understands "tomorrow at 7", and books into ResOS (restaurant reservation software)
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.resos.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Chatbot - Nail Salon */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                onClick={() => setSelectedProject(projects.chatbot)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/3wIskqnjIq8/maxresdefault.jpg" 
+                      alt="Chatbot Nail Salon Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>Smart Booking Chatbot</h3>
+                    <p className="project-tagline">
+                      Voiceflow chatbot with live availability checking and real-time Square booking integration
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.chatbot.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* CNC Monitoring */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                onClick={() => setSelectedProject(projects.cnc)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/KCIsbTH4HuA/maxresdefault.jpg" 
+                      alt="CNC Monitoring System Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>AI CNC Monitoring System</h3>
+                    <p className="project-tagline">
+                      Remote machine monitoring with real-time alerts, video feeds, and incident logging for shop owners
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.cnc.tech.map((tech, index) => (
                         <span key={index}>{tech}</span>
                       ))}
                     </div>
