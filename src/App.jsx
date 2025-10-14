@@ -121,7 +121,7 @@ function App() {
     assistiveCuttingMachine: {
       id: 'assistiveCuttingMachine',
       title: 'Assistive Cutting Machine',
-      tagline: 'Affordable kitchen tool that makes cutting through tough foods easier and safer for home use',
+      tagline: 'Affordable kitchen tool that makes cutting through whole chicken easier',
       thumbnail: '/hardware/chicken-cutting/design4-proto1.jpg',
       problem: 'Cutting food can be hard and tiring on your hands. Many types of dishes in Asia require a lot of cutting effort like cutting through chicken bones, frozen fish, and pork spareribs.\n\nThere are already assistive cutting machines on the market, but they are oftentimes very expensive and for industrial use only.',
       constraints: 'The tool needs to deliver at minimum 10 lbf of force since that is the force required to break chicken bones. The machine should be small and easy to move around. Lastly, it must be safe to use it.',
@@ -182,7 +182,7 @@ function App() {
     formulaSAE: {
       id: 'formulaSAE',
       title: 'Formula SAE Suspension Rocker',
-      tagline: 'CNC machining of complex 3D geometry for high-performance suspension components with tight tolerances',
+      tagline: 'CNC machined front and rear rocker with 3D geometry and fairly tight tolerances for FSAE Club',
       thumbnail: '/hardware/cnc-formula/figure3-rockers.jpg',
       problem: 'Machined a front and rear rocker for the suspension systems. The geometry was 3D which posed many challenges. A CAM program in Fusion 360 was set up with steps such as: Facing, 2D and 3D adaptive clearing, parallel and contour passes, and boring.',
       figureDescriptions: [
@@ -206,7 +206,7 @@ function App() {
     studCuttingMachine: {
       id: 'studCuttingMachine',
       title: 'Automatic Stud Cutting Machine',
-      tagline: 'Full-scale automated manufacturing system with PLC controls and pneumatic actuation',
+      tagline: 'System design of the automated stud cutting machine',
       thumbnail: '/hardware/stud-cutting/figure1-3d-model.jpg',
       problem: 'Ngen Squared asked me to design a full-scale automatic stud cutting machine that was easy to use and with a budget of $5000 CAD.',
       figureDescriptions: [
@@ -252,14 +252,14 @@ function App() {
     },
      lateralWheelTruing: {
        id: 'lateralWheelTruing',
-       title: 'Lateral Wheel Truing Device',
+       title: 'Lateral Wheel Truing Device Design Sketches',
        tagline: 'Portable bike wheel truing device with proximity sensors and real-time mobile app visualization',
        thumbnail: '/hardware/wheel-truing/Wheel-Truing-Image.jpg',
        problem: 'When I volunteered at the bike shop, I noticed that it takes a lot of time for me and the mechanic to true a wheel. Additionally, truing a wheel requires a stand which is expensive and takes up lots of space. Therefore, I wanted to make a device that could tell the users how out of true the bike wheel was and how much to turn',
        constraints: 'The device needed to be portable so the users could true the bike if their bike was out of true while biking. The device would be mounted onto a bike phone mount and then mounted onto the frame of the bike close to the wheel.',
        solution: 'Proximity sensors, Bluetooth modules, batteries, and wheel encoders were used for this application. The wheel would be spun, and the proximity sensors would send live data of the position of different points on the wheel to an app. The app would then plot this data and the users could see in real time which points had the greatest displacement allowing them to tune the wheels to reduce the displacement values. The LED would also blink if the displacement was greater than the number set by the user. The encoder with the plastic measurement wheel was there to tell the orientation of the wheel and how much it had spun. Regarding the industrial design aspect, I wanted it to be bright red and have a smooth shape to represent the feeling of futuristic and adventurous (since it is used for biking application).',
        image: '/hardware/wheel-truing/Wheel-Truing-Image.jpg',
-       tech: ['Arduino', 'Bluetooth', 'Proximity Sensors', 'Encoder', 'SolidWorks', 'Industrial Design']
+       tech: ['Mechanical Design', 'Electronics', 'Rapid Sketches']
       },
       filamentJoining: {
         id: 'filamentJoining',
@@ -278,7 +278,7 @@ function App() {
           '/hardware/filament-joining/figure1-sketch.jpg',
           '/hardware/filament-joining/figure2-hardware-components.jpg'
         ],
-        tech: ['Arduino Nano', 'Stepper Motor', 'Thermocouple', 'MOSFET', '3D Printing', 'Sustainability']
+        tech: ['Arduino', 'Rapid Prototyping', 'Electronics', 'Motor Controls']
       }
     }
 
@@ -289,9 +289,9 @@ function App() {
       videoId: '9KI3pE7HxJY',
       embedCode: '<iframe width="315" height="560" src="https://www.youtube.com/embed/9KI3pE7HxJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       description: [
-        'When you meet people at networking events, it\'s easy to forget to log their contact info or it just takes too long to do manually. This automation solves that.',
-        'Just upload or take a photo of a business card. The workflow scans the image using OCR, extracts key details like name, email, and company, then stores everything in a Google Sheet for easy tracking and follow-up.',
-        'Great for founders, sales teams, and anyone who wants to save time and keep their leads organized without lifting a finger.'
+        'An automation workflow designed to solve the common problem of manually logging contact information from business cards collected at networking events.',
+        'The system uses ChatGPT image analysis to scan business card images, automatically extract key details such as names, emails, and company information, then organize everything into a Google Sheet for easy tracking and follow-up.',
+        'This solution helps founders, sales teams, and professionals save time while maintaining organized contact databases without manual data entry.'
       ],
       tech: ['n8n', 'CapCut']
     },
@@ -301,10 +301,10 @@ function App() {
       videoId: '5FLuRN2L1Y0',
       embedCode: '<iframe width="315" height="560" src="https://www.youtube.com/embed/5FLuRN2L1Y0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       description: [
-        'Everyone\'s talking about AI calling agents — and how they\'re making $10K/month selling them. But is it really that easy in 2025?',
-        'In this video, I break down what it\'s actually like to sell AI receptionists to small businesses. Most SMBs are still skeptical. They\'re worried the AI will say something wrong, miss notes, or sound too robotic.',
-        'That\'s why I believe it\'s all about how you position it. Don\'t pitch it as a replacement for their receptionist. Pitch it as a smart backup assistant — a separate line that kicks in after hours or when no one picks up. It never misses a call and helps improve customer experience by being available 24/7.',
-        'I also share a real story of when I needed urgent help at night and no business picked up — and how just one AI-enabled call would\'ve changed everything.'
+        'A video exploring the realities and challenges of selling AI calling agents to small businesses in 2025, contrasting the hype around AI receptionist solutions with real-world customer concerns.',
+        'The content addresses common small business objections around AI reliability, accuracy, and customer interaction quality. It examines why many SMBs remain skeptical about implementing AI voice solutions.',
+        'The video presents a strategic positioning approach: marketing AI receptionists as backup assistants rather than full replacements. This framing emphasizes 24/7 availability and after-hours coverage while reducing concerns about replacing human staff.',
+        'Includes real-world examples illustrating the value proposition of having AI-enabled call handling for urgent customer needs outside business hours.'
       ],
       tech: ['Bland AI', 'CapCut']
     },
@@ -314,10 +314,10 @@ function App() {
       videoId: '3WfGV4_iPZI',
       embedCode: '<iframe width="315" height="560" src="https://www.youtube.com/embed/3WfGV4_iPZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       description: [
-        'I just built the most advanced AI nutrition coach system you\'ll see in 2025 — and yes, it actually calls me out when I eat junk food.',
-        'I call it the Macro Fury AI System. Here\'s what it can do: I text it what I ate. Or send a voice message. Or even snap a photo of my plate. It instantly recognizes the food, calculates protein, carbs, fat, and calories, and logs it all in my Google Sheets.',
-        'If I eat off-plan, my phone rings — and my AI coach "Brotein Shake" roasts me for my bad choices 💀',
-        'Every night at 9PM, it emails me a full nutrition breakdown and custom tips based on my eating patterns. It runs fully on autopilot. No app. No manual tracking. Just AI doing its thing.'
+        'A comprehensive AI-powered nutrition tracking and accountability system that automates food logging, macro calculation, and personalized coaching through multiple input methods.',
+        'The system accepts food intake data through text, voice messages, or photos, then uses AI to recognize foods and calculate macronutrient breakdowns (protein, carbs, fats, and calories). All data is automatically logged to Google Sheets for tracking.',
+        'Features automated accountability through phone call notifications when eating off-plan, adding a behavioral reinforcement layer to the tracking system.',
+        'Includes scheduled email reports with full nutrition breakdowns and personalized recommendations based on eating patterns. The entire workflow runs autonomously without requiring manual tracking or dedicated mobile apps.'
       ],
       tech: ['n8n', 'CapCut']
     }
@@ -400,7 +400,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              Product Builder • Engineer • Problem Solver
+              I love making things
             </motion.p>
 
             <motion.div 
@@ -435,16 +435,12 @@ function App() {
                   </motion.div>
                   <h2 className="card-title-large">Hi There!</h2>
                   <p className="card-content-large">
-                    I build products and make them work. From software to hardware, AI to sales, I've worked 
-                    hands-on across the full stack.
+                    I love building products across software, hardware, and AI. I work hands-on through the full stack 
+                    and learn through real-world feedback from customer interactions.
                   </p>
                   <p className="card-content-large">
                     Through my startup <strong>Kuwe Technologies Inc</strong>, work experience, and personal projects, 
-                    I've explored the full product cycle from coding and prototyping to marketing and customer feedback.
-                  </p>
-                  <p className="card-content-large">
-                    I love building real-world solutions, learning through shipping, and figuring out how to make 
-                    things people actually want.
+                    I've explored the full product cycle from coding and prototyping to sales and marketing.
                   </p>
                 </div>
               </Tilt>
@@ -642,11 +638,7 @@ function App() {
                   <h3>The Business Reality Check</h3>
                   <p>
                     Trying to build and monetize each type of solution taught me just how different the challenges are across 
-                    <strong> consulting, SaaS, AI tools, and physical products</strong>. It also made it painfully clear why 
-                    investors love SaaS and selling templates.
-                  </p>
-                  <p className="story-joke">
-                    💡 Lower overhead, higher margins, fewer chicken bones 🐔💻
+                    <strong> consulting, SaaS, AI tools, and physical products</strong>.
                   </p>
                 </motion.div>
               </Tilt>
@@ -672,7 +664,7 @@ function App() {
                     <span>💬 Seeding online communities</span>
                     <span>🚪 Knocking on doors</span>
                     <span>☎️ Soul-sucking cold calling that builds character 😵‍💫</span>
-                    <span>🤝 Meetup hustling</span>
+                    <span>🤝 Going to meetups</span>
                   </div>
                 </motion.div>
               </Tilt>
@@ -753,7 +745,7 @@ function App() {
               <span className="title-emoji">🚀</span>
               Software Projects
             </h2>
-            <p className="section-subtitle-creative">Built between coffee runs and late-night debugging sessions.</p>
+            <p className="section-subtitle-creative">Proudly sponsored by way too many cups of coffee ☕</p>
 
             <div className="projects-grid">
               
@@ -1054,7 +1046,7 @@ function App() {
               <span className="title-emoji">⚙️</span>
               Hardware Projects
             </h2>
-            <p className="section-subtitle-creative">From sketches to prototypes to production-ready designs.</p>
+            <p className="section-subtitle-creative">From sketches to prototypes to... even more prototypes.</p>
 
             <div className="projects-grid">
               {/* Assistive Cutting Machine */}
@@ -1116,10 +1108,10 @@ function App() {
                       {hardwareProjects.formulaSAE.tagline}
                     </p>
                     <div className="project-tech-tags">
-                      <span>CNC Machining</span>
+                      <span>CNC Mill</span>
                       <span>Fusion 360 CAM</span>
+                      <span>Waterjet</span>
                       <span>GD&T</span>
-                      <span>Metrology</span>
                     </div>
                   </div>
                 </div>
@@ -1150,10 +1142,8 @@ function App() {
                       {hardwareProjects.studCuttingMachine.tagline}
                     </p>
                     <div className="project-tech-tags">
-                      <span>PLC Siemens S7-1200</span>
-                      <span>HMI KTP400</span>
-                      <span>Pneumatics</span>
-                      <span>Controls Design</span>
+                      <span>Industrial Automation</span>
+                      <span>Mechanical Design</span>
                     </div>
                   </div>
                 </div>
@@ -1184,10 +1174,10 @@ function App() {
                       {hardwareProjects.dronePayload.tagline}
                     </p>
                     <div className="project-tech-tags">
-                      <span>3D Design</span>
+                      <span>Mechanical Design</span>
                       <span>Rapid Prototyping</span>
                       <span>Arduino</span>
-                      <span>Electronics Integration</span>
+                      <span>Electronics</span>
                     </div>
                   </div>
                 </div>
@@ -1761,6 +1751,7 @@ function App() {
                   <span>Python</span>
                   <span>PostgreSQL</span>
                   <span>Supabase</span>
+                  <span>Cloudflare Workers</span>
                   <span>REST APIs</span>
                   <span>Chatbot (Voiceflow)</span>
                   <span>AI Receptionist (Bland AI)</span>
@@ -1870,7 +1861,7 @@ function App() {
       {/* Footer */}
       <footer className="footer-creative">
         <p>
-          <FaCoffee /> Built with React, Framer Motion, and way too much coffee
+          Built with React and Framer Motion
         </p>
         <p className="footer-emoji">Made with <FaHeart /> by Minh • 2025</p>
       </footer>

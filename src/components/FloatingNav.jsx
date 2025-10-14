@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 const navItems = [
   { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Software Projects' },
-  { href: '#hardware', label: 'Hardware Projects' },
-  { href: '#video-editing', label: 'Video Editing' },
+  { href: '#projects', label: 'Software' },
+  { href: '#hardware', label: 'Hardware' },
+  { href: '#video-editing', label: 'Videos' },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' }
 ];
@@ -17,10 +17,12 @@ const FloatingNav = () => {
         <motion.a
           key={item.href}
           href={item.href}
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
+          whileHover={{ scale: 1.05, x: -5 }}
+          whileTap={{ scale: 0.95 }}
+          className="nav-link"
         >
-          <span>{item.label}</span>
+          <span className="nav-dot"></span>
+          <span className="nav-label">{item.label}</span>
         </motion.a>
       ))}
     </nav>

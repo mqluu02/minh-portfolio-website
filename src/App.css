@@ -92,7 +92,7 @@ body::after {
   z-index: 0;
 }
 
-/* Floating Nav Dots */
+/* Floating Nav */
 .floating-nav {
   position: fixed;
   right: 2rem;
@@ -101,53 +101,62 @@ body::after {
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
+  background: rgba(19, 19, 26, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1rem 0.75rem;
+  border-radius: 30px;
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(0, 217, 255, 0.2);
 }
 
-.nav-dot {
-  width: 10px;
-  height: 10px;
-  background: rgba(0, 217, 255, 0.2);
-  border: 2px solid var(--primary);
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
   cursor: pointer;
-  position: relative;
+  text-decoration: none;
+  border-radius: 20px;
   transition: all 0.3s ease;
-  transform: rotate(45deg);
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+  position: relative;
 }
 
-.nav-dot:hover {
+.nav-link:hover {
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateX(-5px);
+}
+
+.nav-link:hover .nav-dot {
   background: var(--primary);
-  border-color: var(--primary);
-  transform: rotate(45deg) scale(1.3);
   box-shadow: 0 0 20px var(--primary);
 }
 
-.nav-dot span {
-  position: absolute;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-45deg);
-  background: rgba(19, 19, 26, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 0.4rem 0.8rem;
-  font-size: 0.75rem;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  border: 2px solid var(--primary);
-  border-left: 3px solid var(--primary);
+.nav-link:hover .nav-label {
   color: var(--primary);
-  font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
 }
 
-.nav-dot:hover span {
-  opacity: 1;
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 217, 255, 0.5);
+  border: 2px solid var(--primary);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+}
+
+.nav-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
 }
 
 /* Hero - Gamified Futuristic */
@@ -1907,6 +1916,33 @@ body::after {
 }
 
 /* Responsive Design */
+/* Tablet Responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .skills-bento {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .floating-nav {
+    right: 1.5rem;
+    padding: 0.8rem 0.6rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .nav-label {
+    font-size: 0.8rem;
+  }
+
+  .nav-dot {
+    width: 7px;
+    height: 7px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-creative-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1926,11 +1962,32 @@ body::after {
     grid-column: span 2;
     grid-row: auto;
   }
+
+  .skills-creative {
+    padding: 6rem 0;
+  }
 }
 
 @media (max-width: 768px) {
   .floating-nav {
-    display: none;
+    right: 1rem;
+    padding: 0.75rem 0.5rem;
+    gap: 0.35rem;
+    border-radius: 25px;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.7rem;
+    gap: 0.5rem;
+  }
+
+  .nav-label {
+    font-size: 0.75rem;
+  }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
   }
 
   .hero-ultimate {
@@ -1954,7 +2011,7 @@ body::after {
   }
 
   .creative-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   .hero-container-ultimate {
@@ -1962,7 +2019,7 @@ body::after {
   }
   
   .ultimate-name {
-    font-size: clamp(3rem, 12vw, 5rem);
+    font-size: clamp(2.5rem, 12vw, 5rem);
   }
   
   .hero-name-section {
@@ -1970,34 +2027,35 @@ body::after {
   }
 
   .card-title-large {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .card-content-large {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .opportunity-item {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
   }
 
   .opportunity-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .social-icon-item {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
   }
 
   .cta-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .cta-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .story-row {
@@ -2010,15 +2068,85 @@ body::after {
 
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .skills-bento {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .skill-card-creative {
+    padding: 2rem;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-title-creative {
+    font-size: 2rem;
+  }
+
+  .section-subtitle-creative {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .ultimate-name {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .card-title-large {
+    font-size: 1.3rem;
+  }
+
+  .card-content-large {
+    font-size: 0.9rem;
+  }
+
+  .creative-card {
+    padding: 1.2rem;
+  }
+
+  .skill-card-creative {
+    padding: 1.5rem;
+  }
+
+  .floating-nav {
+    right: 0.5rem;
+    padding: 0.6rem 0.4rem;
+    gap: 0.3rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    gap: 0.45rem;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+  }
+
+  .nav-dot {
+    width: 5px;
+    height: 5px;
+    border-width: 1.5px;
+  }
+
+  .section-title-creative {
+    font-size: 1.75rem;
+  }
+
+  .opportunity-item {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
