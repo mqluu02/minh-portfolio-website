@@ -4,6 +4,11 @@ import Tilt from 'react-parallax-tilt'
 import Particles from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
 import { FaGithub, FaLinkedin, FaEnvelope, FaRocket, FaBrain, FaChartLine, FaTools, FaPhone, FaComments, FaVideo, FaMicrochip, FaCode, FaMapMarkerAlt, FaFire, FaHeart, FaCoffee, FaLightbulb, FaTimes, FaCog, FaWrench, FaPlus, FaMinus } from 'react-icons/fa'
+import ArcadeBackground from './components/ArcadeBackground'
+import FloatingNav from './components/FloatingNav'
+import ProjectCard from './components/ProjectCard'
+import VideoModal from './components/VideoModal'
+import { softwareProjects } from './data/projectsData'
 import './App.css'
 
 function App() {
@@ -17,7 +22,11 @@ function App() {
   const [selectedVideoProject, setSelectedVideoProject] = useState(null)
   const [expandedDesign, setExpandedDesign] = useState(null)
 
-  const projects = {
+  const projects = softwareProjects;
+
+  // Note: Hardware and video projects kept inline for now due to complex nested structures
+  // TODO: Extract to separate files in future refactoring
+  const _unusedProjectsBackup = {
     square: {
       id: 'square',
       title: 'AI Phone Receptionist - Square',
@@ -215,8 +224,63 @@ function App() {
       workingMechanism: 'The stud slides purely by gravity utilizing the ball transfer bearings for smooth motion. The stud would induce the proximity sensor which would actuate the pneumatic cylinder to clamp the stud. Depending on the desired cutting length, the actuation time would vary. Finally, the linear ball screw with the cutting saw assembly would move to cut the stud at the precise length.\n\nSince the design relies on gravity as the primary driving force, the table angle was optimized to reduce stud sliding time and minimize clamping delay after actuation, which affects cutting length accuracy.',
       controlsSystem: 'The control panel ensured safe operations and protected expensive devices from being damaged due to overcurrent. Fuses, relays, MCBs were implemented in the circuit. The pneumatic cylinder would be controlled by the solenoid valve and the pneumatic system which included (air compressor with pressure regulator, airlines, and fittings). PLC Siemens S7-1200 and HMI KTP400 were chosen because of their popularity and compatibility.',
       feedback: 'Ngen Squared desired to replace the cutting saw with a plasma cutter which was much faster and smoother.'
+    },
+    dronePayload: {
+      id: 'dronePayload',
+      title: 'Drone Payload Research Lab Co-op Project',
+      tagline: 'Drone-mounted camera system for remote pine tree inspection with deployable payload mechanism',
+      thumbnail: '/hardware/drone-payload/figure3-prototype.jpg',
+      problem: 'The purpose of this project was to design a drone payload that could be controlled hundreds of meters away. The camera system needed to be deployed reliably to be able to take pictures of the pine trees at different heights.\n\nThe original design by the Capstone Students used a bevel gear train system to transfer rotation into linear motion. Solenoid systems were implemented to release the camera payload in case the drone got stuck in the branches.',
+      figureDescriptions: [
+        'Figure 1: Original 3D design of the drone payload',
+        'Figure 2: Revised 3D design of the drone payload',
+        'Figure 3: 3D printed prototype of the drone payload'
+      ],
+      images: [
+        '/hardware/drone-payload/figure1-original-design.jpg',
+        '/hardware/drone-payload/figure2-revised-design.jpg',
+        '/hardware/drone-payload/figure3-prototype.jpg'
+      ],
+      designChanges: [
+        'The original design had many unnecessary complex geometries which made it hard to 3D print. There were many overhangs which required a lot of support leading to wasteful material and long printing time. Therefore, I simplified a lot of components into much simpler shapes that could be easily 3D printed.',
+        'There was no way to mount the design onto the drones, so I designed a top coupler for mounting.',
+        'The mounting extrusions for the ropes to go through were too thin and would break under heavy wind. I increased it to be twice as thick.',
+        'Redesigned the whole electronics tray to easily mount the electronics as there was no way to mount the electronics in the original design.',
+        'Outsourced the electronics (the original design did not spec out the required electronics) which included: Arduino nano board, a receiver, transmitter, motor controller, magnetic encoder, LCD display, RF module.'
+      ],
+      prototypingChallenges: 'As can be seen in the prototype image, the camera load was too light and swung back and forth while being pulled up. Additionally, because the strings were too long, they started to intertwine. A dead weight as well as the string spacers were added but they did not fix the issues.\n\nTherefore, I concluded that this concept design was not feasible because when the strings were deployed hundreds of meters down, the issue of string tangling was inevitable. I proposed that instead of mounting the camera payload onto an existing drone, we could use a separate high-speed drone with integrated camera solutions.'
+    },
+     lateralWheelTruing: {
+       id: 'lateralWheelTruing',
+       title: 'Lateral Wheel Truing Device',
+       tagline: 'Portable bike wheel truing device with proximity sensors and real-time mobile app visualization',
+       thumbnail: '/hardware/wheel-truing/Wheel-Truing-Image.jpg',
+       problem: 'When I volunteered at the bike shop, I noticed that it takes a lot of time for me and the mechanic to true a wheel. Additionally, truing a wheel requires a stand which is expensive and takes up lots of space. Therefore, I wanted to make a device that could tell the users how out of true the bike wheel was and how much to turn',
+       constraints: 'The device needed to be portable so the users could true the bike if their bike was out of true while biking. The device would be mounted onto a bike phone mount and then mounted onto the frame of the bike close to the wheel.',
+       solution: 'Proximity sensors, Bluetooth modules, batteries, and wheel encoders were used for this application. The wheel would be spun, and the proximity sensors would send live data of the position of different points on the wheel to an app. The app would then plot this data and the users could see in real time which points had the greatest displacement allowing them to tune the wheels to reduce the displacement values. The LED would also blink if the displacement was greater than the number set by the user. The encoder with the plastic measurement wheel was there to tell the orientation of the wheel and how much it had spun. Regarding the industrial design aspect, I wanted it to be bright red and have a smooth shape to represent the feeling of futuristic and adventurous (since it is used for biking application).',
+       image: '/hardware/wheel-truing/Wheel-Truing-Image.jpg',
+       tech: ['Arduino', 'Bluetooth', 'Proximity Sensors', 'Encoder', 'SolidWorks', 'Industrial Design']
+      },
+      filamentJoining: {
+        id: 'filamentJoining',
+        title: '3D Filament Welding/Joining Device',
+        tagline: 'Sustainable solution to recycle 3D printing waste by joining filament scraps together',
+        thumbnail: '/hardware/filament-joining/figure2-hardware-components.jpg',
+        problem: 'I noticed that in my university engineering garage, there is a lot of 3D filament waste. Therefore, I planned to make this 3D filament joiner for the engineering garage and apply for the university sustainability grant.',
+        solution: 'The filament would first be inserted through the first gear extruder. Then, the second filament would be inserted, and the joined section would be heated by the copper coil wrapped around the copper tube in the middle. The copper tube would be held by the two clamps in the middle. After that, the fan would cool down the joined section and the joined filament would be extruded to the other side.',
+        components: 'The electronic components included: 3D print gear extruder, stepper motor driver, Arduino Nano, Fan, K-type thermocouple, LCD screen, MOSFET, switch, buck boost converter and aluminum heating block.',
+        status: 'This project was paused due to school commitments, but the core design and component selection were completed.',
+        figureDescriptions: [
+          'Figure 1: Rapid Sketch Of The Device',
+          'Figure 2: Hardware Components Of The Device'
+        ],
+        images: [
+          '/hardware/filament-joining/figure1-sketch.jpg',
+          '/hardware/filament-joining/figure2-hardware-components.jpg'
+        ],
+        tech: ['Arduino Nano', 'Stepper Motor', 'Thermocouple', 'MOSFET', '3D Printing', 'Sustainability']
+      }
     }
-  }
 
   const videoProjects = {
     businessCardOCR: {
@@ -261,6 +325,9 @@ function App() {
 
   return (
     <div className="app">
+      {/* Arcade Background */}
+      <ArcadeBackground />
+      
       {/* Particles Background */}
       <Particles
         id="tsparticles"
@@ -302,57 +369,7 @@ function App() {
       />
 
       {/* Floating Nav Dots */}
-      <nav className="floating-nav">
-        <motion.a 
-          href="#hero"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>Home</span>
-        </motion.a>
-        <motion.a 
-          href="#about"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>About</span>
-        </motion.a>
-        <motion.a 
-          href="#projects"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>Software Projects</span>
-        </motion.a>
-        <motion.a 
-          href="#hardware"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>Hardware Projects</span>
-        </motion.a>
-        <motion.a 
-          href="#video-editing"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>Video Editing</span>
-        </motion.a>
-        <motion.a 
-          href="#skills"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>Skills</span>
-        </motion.a>
-        <motion.a 
-          href="#contact"
-          whileHover={{ scale: 1.5 }}
-          className="nav-dot"
-        >
-          <span>Contact</span>
-        </motion.a>
-      </nav>
+      <FloatingNav />
 
       {/* Hero Section - Ultra Creative */}
       <section className="hero-ultimate" id="hero">
@@ -407,7 +424,7 @@ function App() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="grid-item intro-item"
             >
-              <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
+              <Tilt tiltMaxAngleX={0.5} tiltMaxAngleY={0.5}>
                 <div className="creative-card intro-card-creative">
                   <motion.div 
                     className="card-icon-large"
@@ -440,7 +457,7 @@ function App() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="grid-item opportunities-item"
             >
-              <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
+              <Tilt tiltMaxAngleX={0.5} tiltMaxAngleY={0.5}>
                 <div className="creative-card opportunities-card-creative">
                   <div className="opportunity-header">
                     <motion.div 
@@ -501,12 +518,12 @@ function App() {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="grid-item social-item"
             >
-              <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
+              <Tilt tiltMaxAngleX={0.5} tiltMaxAngleY={0.5}>
                 <div className="creative-card social-card-creative">
                   <h3 className="card-title-small">Connect</h3>
                   <div className="social-icons-creative">
                     <motion.a 
-                      href="mailto:your.email@example.com"
+                      href="mailto:luuquangminh1006@gmail.com"
                       className="social-icon-item"
                       whileHover={{ scale: 1.2, rotate: 10 }}
                       whileTap={{ scale: 0.9 }}
@@ -514,7 +531,7 @@ function App() {
                       <FaEnvelope />
                     </motion.a>
                     <motion.a 
-                      href="https://linkedin.com/in/yourprofile"
+                      href="https://www.linkedin.com/in/minh-luu-a6636a292/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon-item"
@@ -524,7 +541,7 @@ function App() {
                       <FaLinkedin />
                     </motion.a>
                     <motion.a 
-                      href="https://github.com/yourprofile"
+                      href="https://github.com/mqluu02"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon-item"
@@ -1141,6 +1158,106 @@ function App() {
                   </div>
                 </div>
               </motion.div>
+
+              {/* Drone Payload Research Lab Co-op */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                onClick={() => setSelectedHardwareProject(hardwareProjects.dronePayload)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src={hardwareProjects.dronePayload.thumbnail}
+                      alt="Drone Payload Research Lab Co-op Project"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{hardwareProjects.dronePayload.title}</h3>
+                    <p className="project-tagline">
+                      {hardwareProjects.dronePayload.tagline}
+                    </p>
+                    <div className="project-tech-tags">
+                      <span>3D Design</span>
+                      <span>Rapid Prototyping</span>
+                      <span>Arduino</span>
+                      <span>Electronics Integration</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Lateral Wheel Truing Device */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                onClick={() => setSelectedHardwareProject(hardwareProjects.lateralWheelTruing)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src={hardwareProjects.lateralWheelTruing.thumbnail}
+                      alt="Lateral Wheel Truing Device"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{hardwareProjects.lateralWheelTruing.title}</h3>
+                    <p className="project-tagline">
+                      {hardwareProjects.lateralWheelTruing.tagline}
+                    </p>
+                    <div className="project-tech-tags">
+                      {hardwareProjects.lateralWheelTruing.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 3D Filament Welding/Joining Device */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                onClick={() => setSelectedHardwareProject(hardwareProjects.filamentJoining)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src={hardwareProjects.filamentJoining.thumbnail}
+                      alt="3D Filament Welding/Joining Device"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{hardwareProjects.filamentJoining.title}</h3>
+                    <p className="project-tagline">
+                      {hardwareProjects.filamentJoining.tagline}
+                    </p>
+                    <div className="project-tech-tags">
+                      {hardwareProjects.filamentJoining.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -1244,6 +1361,67 @@ function App() {
                 <div className="modal-section">
                   <h3>💬 Feedback from Ngen Squared</h3>
                   <p>{selectedHardwareProject.feedback}</p>
+                </div>
+              )}
+
+              {/* Design Changes (for Drone Payload) */}
+              {selectedHardwareProject.designChanges && (
+                <div className="modal-section">
+                  <h3>🔧 Design Changes</h3>
+                  <ul className="challenges-list">
+                    {selectedHardwareProject.designChanges.map((change, index) => (
+                      <li key={index}>{change}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Prototyping Challenges (for Drone Payload) */}
+              {selectedHardwareProject.prototypingChallenges && (
+                <div className="modal-section">
+                  <h3>🔬 Prototyping and Design Challenges</h3>
+                  <p>{selectedHardwareProject.prototypingChallenges}</p>
+                </div>
+              )}
+
+              {/* Solution Section (for Lateral Wheel Truing) */}
+              {selectedHardwareProject.solution && (
+                <div className="modal-section">
+                  <h3>💡 Design Solution</h3>
+                  {selectedHardwareProject.image && (
+                    <div className="design-image">
+                      <img src={selectedHardwareProject.image} alt={selectedHardwareProject.title} />
+                    </div>
+                  )}
+                  <p>{selectedHardwareProject.solution}</p>
+                </div>
+              )}
+
+              {/* Components (for Filament Joining) */}
+              {selectedHardwareProject.components && (
+                <div className="modal-section">
+                  <h3>🔌 Electronic Components</h3>
+                  <p>{selectedHardwareProject.components}</p>
+                </div>
+              )}
+
+              {/* Status (for Filament Joining) */}
+              {selectedHardwareProject.status && (
+                <div className="modal-section">
+                  <h3>📊 Project Status</h3>
+                  <p>{selectedHardwareProject.status}</p>
+                </div>
+              )}
+
+              {/* Tech Stack (for projects with tech array) */}
+              {selectedHardwareProject.tech && (
+                <div className="modal-section">
+                  <h3>🛠️ Technologies Used</h3>
+                  <div className="modal-tech-tags">
+                    {selectedHardwareProject.tech.map((tech, index) => (
+                      <span key={index} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
                 </div>
               )}
 
@@ -1540,7 +1718,7 @@ function App() {
         <div className="container">
           <h2 className="section-title-creative">
             <span className="title-emoji">🛠️</span>
-            What I Bring to the Table
+            Skills
           </h2>
 
           <div className="skills-bento">
@@ -1556,12 +1734,10 @@ function App() {
                 <div className="skill-bubbles-creative">
                   <span>D2D Sales</span>
                   <span>Cold Calling</span>
-                  <span>Email Campaigns</span>
-                  <span>Reddit</span>
-                  <span>Discord</span>
-                  <span>Instagram</span>
-                  <span>Objection Handling</span>
-                  <span>Customer Discovery</span>
+                  <span>Cold Emailing</span>
+                  <span>Reddit Seeding</span>
+                  <span>Discord Seeding</span>
+                  <span>Video Editing (CapCut)</span>
                 </div>
               </motion.div>
             </Tilt>
@@ -1578,13 +1754,19 @@ function App() {
                 <h3>AI & Software</h3>
                 <div className="skill-bubbles-creative">
                   <span>React</span>
-                  <span>GPT/LLMs</span>
-                  <span>Bland AI</span>
-                  <span>Voiceflow</span>
+                  <span>Next.js</span>
+                  <span>Express.js</span>
+                  <span>Node.js</span>
+                  <span>TypeScript</span>
                   <span>Python</span>
-                  <span>APIs</span>
-                  <span>Cloudflare</span>
-                  <span>RAG Systems</span>
+                  <span>PostgreSQL</span>
+                  <span>Supabase</span>
+                  <span>REST APIs</span>
+                  <span>Chatbot (Voiceflow)</span>
+                  <span>AI Receptionist (Bland AI)</span>
+                  <span>AI Agent & Automations (n8n)</span>
+                  <span>GitHub Actions</span>
+                  <span>Docker</span>
                 </div>
               </motion.div>
             </Tilt>
@@ -1598,37 +1780,23 @@ function App() {
                 transition={{ delay: 0.2 }}
               >
                 <FaTools className="skill-icon-creative" />
-                <h3>Mechanical Engineering</h3>
+                <h3>Hardware & Mechanical Engineering</h3>
                 <div className="skill-bubbles-creative">
                   <span>SolidWorks</span>
-                  <span>FEA</span>
-                  <span>CNC</span>
-                  <span>CAM</span>
-                  <span>3D Printing</span>
-                  <span>PLC</span>
-                  <span>Arduino</span>
-                  <span>Prototyping</span>
-                </div>
-              </motion.div>
-            </Tilt>
-
-            <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
-              <motion.div 
-                className="skill-card-creative"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <FaLightbulb className="skill-icon-creative" />
-                <h3>Product & Business</h3>
-                <div className="skill-bubbles-creative">
-                  <span>Product Strategy</span>
-                  <span>Customer Discovery</span>
-                  <span>Market Research</span>
-                  <span>Cost Optimization</span>
-                  <span>Video Editing</span>
-                  <span>Technical Docs</span>
+                  <span>Inventor</span>
+                  <span>Creo</span>
+                  <span>Fusion 360 CAM</span>
+                  <span>CNC Milling</span>
+                  <span>FEA (ANSYS)</span>
+                  <span>Inventor Nastran</span>
+                  <span>CFD</span>
+                  <span>DFMA</span>
+                  <span>GD&T</span>
+                  <span>Tolerance Stack-up</span>
+                  <span>Motor Design</span>
+                  <span>Electronics</span>
+                  <span>MCU</span>
+                  <span>Computer Vision</span>
                 </div>
               </motion.div>
             </Tilt>
@@ -1652,62 +1820,49 @@ function App() {
             >
               📬
             </motion.div>
-            <h2>Let's Build Something Cool</h2>
-            <p className="contact-subtitle">
-              Looking for PM/AE/SE roles where I can hustle, build, and sell.
-            </p>
+            <h2>Contact</h2>
 
             <div className="contact-grid">
               <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
                 <motion.a 
-                  href="mailto:your.email@example.com"
+                  href="mailto:luuquangminh1006@gmail.com"
                   className="contact-card-creative"
                   whileHover={{ scale: 1.05 }}
                 >
                   <FaEnvelope className="contact-icon" />
-                  <h3>Email Me</h3>
-                  <p>your.email@example.com</p>
+                  <h3>Email</h3>
+                  <p>luuquangminh1006@gmail.com</p>
                 </motion.a>
               </Tilt>
 
               <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
                 <motion.a 
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/minh-luu-a6636a292/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="contact-card-creative"
                   whileHover={{ scale: 1.05 }}
                 >
                   <FaLinkedin className="contact-icon" />
                   <h3>LinkedIn</h3>
-                  <p>Connect with me</p>
+                  <p>@minh-luu-a6636a292</p>
                 </motion.a>
               </Tilt>
 
               <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
                 <motion.a 
-                  href="https://github.com"
+                  href="https://github.com/mqluu02"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="contact-card-creative"
                   whileHover={{ scale: 1.05 }}
                 >
                   <FaGithub className="contact-icon" />
                   <h3>GitHub</h3>
-                  <p>Check my code</p>
+                  <p>@mqluu02</p>
                 </motion.a>
               </Tilt>
             </div>
-
-            <motion.div 
-              className="final-quote"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <FaHeart className="quote-icon" />
-              <p>
-                "Not your typical engineer. I actually enjoy talking to customers and selling stuff. 
-                Let's chat about how I can help your team win."
-              </p>
-            </motion.div>
           </motion.div>
       </div>
       </section>

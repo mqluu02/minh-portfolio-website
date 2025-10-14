@@ -79,6 +79,7 @@ body::after {
 .app {
   position: relative;
   min-height: 100vh;
+  z-index: 1;
 }
 
 /* Particles Background */
@@ -1341,7 +1342,7 @@ body::after {
 
 /* Hardware Projects Specific Styles */
 .hardware-projects {
-  background: rgba(10, 10, 15, 0.95);
+  background: transparent;
 }
 
 .hardware-modal {
@@ -1542,7 +1543,7 @@ body::after {
 
 /* Video Editing Projects Section */
 .video-editing-section {
-  background: rgba(10, 10, 15, 0.95);
+  background: transparent;
 }
 
 /* Video Modal Styles */
