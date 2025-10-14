@@ -1339,6 +1339,297 @@ body::after {
   margin-bottom: 1.5rem;
 }
 
+/* Hardware Projects Specific Styles */
+.hardware-projects {
+  background: rgba(10, 10, 15, 0.95);
+}
+
+.hardware-modal {
+  max-width: 1400px;
+}
+
+.constraints-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.constraints-list li {
+  padding: 0.75rem 1rem;
+  padding-left: 2.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-left: 3px solid var(--primary);
+  border-radius: 8px;
+  color: var(--text-muted);
+}
+
+.constraints-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 1rem;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Design Accordion Styles */
+.designs-accordion {
+  margin-top: 1.5rem;
+}
+
+.design-item {
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(0, 217, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(19, 19, 26, 0.8);
+  transition: all 0.3s ease;
+}
+
+.design-item:hover {
+  border-color: rgba(0, 217, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.15);
+}
+
+.design-header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 217, 255, 0.05);
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.design-header:hover {
+  background: rgba(0, 217, 255, 0.1);
+}
+
+.design-header.expanded {
+  background: rgba(0, 217, 255, 0.15);
+  border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+}
+
+.design-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.design-number {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(0, 217, 255, 0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.design-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.design-header svg {
+  color: var(--primary);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.design-header.expanded svg {
+  transform: rotate(180deg);
+}
+
+.design-content {
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.design-image {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.design-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.design-images-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.design-images-grid .design-image {
+  margin-bottom: 0;
+}
+
+.design-section {
+  margin-bottom: 2rem;
+}
+
+.design-section:last-child {
+  margin-bottom: 0;
+}
+
+.design-section h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.design-section p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.design-section ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.design-section li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.05);
+}
+
+.design-section li:last-child {
+  border-bottom: none;
+}
+
+.design-section li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.design-section strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Video Editing Projects Section */
+.video-editing-section {
+  background: rgba(10, 10, 15, 0.95);
+}
+
+/* Video Modal Styles */
+.video-modal {
+  max-width: 900px;
+}
+
+.modal-video-vertical {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper-vertical {
+  position: relative;
+  width: 315px;
+  height: 560px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-wrapper-vertical iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+/* Formula SAE Specific Styles */
+.challenges-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.challenges-list li {
+  padding: 1rem 1.5rem;
+  padding-left: 3rem;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-left: 3px solid var(--primary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.challenges-list li:hover {
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.challenges-list li::before {
+  content: counter(item) '.';
+  counter-increment: item;
+  position: absolute;
+  left: 1.2rem;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.modal-section .challenges-list {
+  counter-reset: item;
+}
+
+.design-image-with-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.image-caption {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
 /* Modal Responsive */
 @media (max-width: 768px) {
   .project-modal-overlay {
@@ -1364,6 +1655,64 @@ body::after {
   .modal-close {
     top: 1rem;
     right: 1rem;
+  }
+
+  .design-header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .design-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .design-content {
+    padding: 1.5rem;
+  }
+
+  .design-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .design-section p,
+  .design-section li {
+    font-size: 0.95rem;
+  }
+
+  .design-images-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-image img {
+    max-height: 350px;
+  }
+
+  .challenges-list li {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    padding-left: 2.5rem;
+  }
+
+  .challenges-list li::before {
+    left: 1rem;
+  }
+
+  .image-caption {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .video-wrapper-vertical {
+    width: 280px;
+    height: 498px;
+  }
+
+  .modal-video-vertical {
+    margin-bottom: 1.5rem;
   }
 }
 

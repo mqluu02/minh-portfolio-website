@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Tilt from 'react-parallax-tilt'
 import Particles from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
-import { FaGithub, FaLinkedin, FaEnvelope, FaRocket, FaBrain, FaChartLine, FaTools, FaPhone, FaComments, FaVideo, FaMicrochip, FaCode, FaMapMarkerAlt, FaFire, FaHeart, FaCoffee, FaLightbulb, FaTimes } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaRocket, FaBrain, FaChartLine, FaTools, FaPhone, FaComments, FaVideo, FaMicrochip, FaCode, FaMapMarkerAlt, FaFire, FaHeart, FaCoffee, FaLightbulb, FaTimes, FaCog, FaWrench, FaPlus, FaMinus } from 'react-icons/fa'
 import './App.css'
 
 function App() {
@@ -13,6 +13,9 @@ function App() {
   }, [])
 
   const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedHardwareProject, setSelectedHardwareProject] = useState(null)
+  const [selectedVideoProject, setSelectedVideoProject] = useState(null)
+  const [expandedDesign, setExpandedDesign] = useState(null)
 
   const projects = {
     square: {
@@ -55,10 +58,10 @@ function App() {
       problem: 'In busy CNC machine shops, even a small mistake like tool breakage, part misalignment, or material feed issues can lead to costly downtime, damaged equipment, or safety hazards. However, shop owners and operators often juggle multiple responsibilities beyond the shop floor, from managing logistics to picking up their kids. Constantly supervising machines isn\'t always practical.',
       solution: 'This project focuses on building a mockup front end for an AI-powered CNC monitoring system. The goal is to demonstrate the intended user experience, interface design, and system workflow laying the foundation for a future production-ready implementation.\n\nThe proposed system is designed to help CNC shop owners and operators monitor machines remotely using a combination of computer vision and audio analysis. It detects anomalies such as tool breakage, unusual machine noise, or part ejection, and sends real-time alerts to the user.\n\n**In a full implementation, the system would include:**\n• Live video streaming from Raspberry Pi-based camera modules using WebRTC for low-latency transmission\n• Audio anomaly detection using lightweight models running on edge devices\n• Backend service to process incoming data, classify anomalies, and send alerts\n• Centralized dashboard for viewing live feeds, reviewing incident logs, and tracking machine status\n• Remote machine control integration for emergency stops\n• Not limited to CNC machines - works with 3D printers, robotic arms, and other industrial equipment'
     },
-    kuwe: {
-      id: 'kuwe',
-      title: 'Kuwe Platform: The Shopify for AI Agents & Automations',
-      tagline: 'Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize AI without code.',
+    kuweCallingAgent: {
+      id: 'kuweCallingAgent',
+      title: 'Kuwe Platform: The Shopify for AI Agents & Automations (Calling Agent Builder)',
+      tagline: 'Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize AI calling agents without code.',
       website: 'https://kuwe.ai/',
       videoId: 'dN1fJF4Ue0c',
       embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/dN1fJF4Ue0c?si=s3-BuHjiD65Oek86" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
@@ -78,6 +81,181 @@ function App() {
       ],
       problem: 'When we started as an AI Agency using Bland AI, we realized it wasn\'t multitenant — we had to create each client a separate Bland AI account. This made it hard to sell in a scalable way. Customers couldn\'t easily self-serve by filling out a form to configure their calling agents. There was no way for AI agencies or AI builders to create solutions and sell them passively without manual setup for each client.',
       solution: 'We built Kuwe Platform to solve this. It\'s a marketplace and no-code builder that allows:\n\n**For Builders/Agencies:**\n• Create AI calling agent templates using a visual no-code interface\n• Configure workflows, integrations, and required buyer inputs\n• Publish templates to the marketplace for passive income\n• Multi-tenant architecture - one platform, many clients\n\n**For Buyers/Small Businesses:**\n• Browse ready-made AI agent templates\n• Fill out simple forms (prompts, business details, integrations)\n• Self-serve deployment in minutes\n• No technical skills or setup required\n\nThis enables AI agencies to build once, sell many times, and allows customers to get AI solutions without waiting for custom development.'
+    },
+    kuweAutomation: {
+      id: 'kuweAutomation',
+      title: 'Kuwe Platform: The Shopify for AI Agents & Automations (Automation Builder)',
+      tagline: 'Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize workflow automations without code.',
+      website: 'https://kuwe.ai/',
+      videoId: 'frkcBzP6LIc',
+      embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/frkcBzP6LIc?si=rIfl_58Iryu8P--c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      tech: ['Next.js', 'React Flow', 'Supabase', 'nango.dev', 'TypeScript', 'Tailwind CSS'],
+      isMultiVideo: true,
+      videos: [
+        {
+          title: 'Demo 1: Automation Builder & Buyer Flow',
+          embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/frkcBzP6LIc?si=rIfl_58Iryu8P--c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+          description: 'This demo shows the full workflow: builders create automation templates with drag-and-drop, publish to marketplace, and buyers purchase, configure, and deploy them instantly.'
+        },
+        {
+          title: 'Demo 2: Additional Automation Builder & Buyer Examples',
+          embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/c46WAcVzsNQ?si=l5xuEX5-VZDJUbkA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+          description: 'This demo showcases additional automation workflows demonstrating how builders create templates and buyers deploy them for different use cases and integrations.'
+        }
+      ],
+      problem: 'While n8n is a powerful automation tool, it\'s difficult to scale commercially. Each new client typically requires a separate n8n instance, which makes it hard for builders to monetize their workflows at scale. There\'s no easy way for customers to self-serve by purchasing and deploying pre-built workflow templates without technical setup.',
+      solution: 'Kuwe solves this by providing a multitenant automation builder where:\n\n**For Builders:**\n• Use drag-and-drop interface to create custom workflows\n• Turn workflows into reusable templates with configurable inputs\n• Specify required integrations using Nango.dev\n• Deploy to marketplace for buyers to purchase and launch\n• Earn passive income from scalable, self-serve automations\n\n**For Buyers:**\n• Browse and purchase automation templates\n• Fill out simple forms with their input values\n• Connect integrations (Google Sheets, Slack, Gmail, etc.)\n• Launch workflows instantly — no n8n setup or technical knowledge needed\n\nThis makes automation accessible to non-technical users and enables builders to monetize their work at scale.'
+    }
+  }
+
+  const hardwareProjects = {
+    assistiveCuttingMachine: {
+      id: 'assistiveCuttingMachine',
+      title: 'Assistive Cutting Machine',
+      tagline: 'Affordable kitchen tool that makes cutting through tough foods easier and safer for home use',
+      thumbnail: '/hardware/chicken-cutting/design4-proto1.jpg',
+      problem: 'Cutting food can be hard and tiring on your hands. Many types of dishes in Asia require a lot of cutting effort like cutting through chicken bones, frozen fish, and pork spareribs.\n\nThere are already assistive cutting machines on the market, but they are oftentimes very expensive and for industrial use only.',
+      constraints: 'The tool needs to deliver at minimum 10 lbf of force since that is the force required to break chicken bones. The machine should be small and easy to move around. Lastly, it must be safe to use it.',
+      designs: [
+        {
+          id: 'design1',
+          title: 'First Design',
+          image: '/hardware/chicken-cutting/design1.jpg',
+          howItWorks: 'The user would rotate the handlebar, and it would accelerate the slider. The knife would be clamped onto the sliding block using 4 set screws.',
+          idea: 'The idea behind this design was to maximize the sliding block velocity as velocity related to impact force. And the higher the impact force, the easier it would be to cut through the food.',
+          designSteps: [
+            'Sketch out all possible linkage mechanisms that convert rotary motion into linear motion.',
+            'The input rotation angle must be less than 90 degrees or else it would hurt the user\'s wrist when using. The slider stroke should be at a minimum distance of 8 inches to account for food spaces and acceleration distances. Based on these geometry constraints, an appropriate linkage mechanism was chosen.',
+            'The gearbox with gear ratio of 3:1 was added to minimize the cranking movement while maximizing the sliding stroke.',
+            'Calculations using kinematic analysis theory showed that the impact force delivered was 10 lbf while SolidWorks Dynamic Simulation calculated at 15 lbf which satisfied our design criteria.',
+            'The prototype would be made of wood and 3D printed plastic',
+            'This design was abandoned because it took a lot of time to manufacture, and the supporting base was small which led to it easily tipping over because of the weight of the sliding block'
+          ]
+        },
+        {
+          id: 'design2',
+          title: 'Second Design',
+          images: ['/hardware/chicken-cutting/design2-cad.jpg', '/hardware/chicken-cutting/design2-prototype.jpg'],
+          howItWorks: 'There was a compound gear train coupled with the rack and pinion gear to transfer rotation to linear motion. The compound gear train was used because the design needed to be compact. The gear train was 4:1 ratio which resulted in a small cranking motion input and a large stroke distance output, making it faster to cut. The cutting force was calculated to be at 16.5 lbf. This was calculated by finding the cutting block velocity due to both weight and the gear ratio.',
+          prototype: 'The prototype was made using wood and 3D printed material. The knife was clamped tightly using a 4" drill press which was mounted onto the mounting board. Therefore, it was much more reliable compared to using 4 set screws since the clamping surface area was greater. Through this prototype I learned 3 things:',
+          learnings: [
+            'This design took a lot of time and money to manufacture. This prototype cost me 120 CAD.',
+            'The input shaft broke by torsion because the torque due to the gear train was too high. I increased the shaft diameter from 0.5" to 1" but it would not help.',
+            'Superglue, wood glue, 3D printed shafts and gears were not suitable if this machine was commercialized.',
+            'The output shaft was too long causing the shaft to bend. Therefore, the transmission was not smooth. I later added a bearing, and it was much better.',
+            'While testing this machine and cutting some chicken, I realized that the sheer weight of the drill press would create more than enough force to cut through chicken bones. Additionally, it was much easier and faster to just move the cutting block up and down instead of having to crank. Therefore, this was not a feasible design.'
+          ]
+        },
+        {
+          id: 'design3',
+          title: 'Third Design',
+          image: '/hardware/chicken-cutting/design3.jpg',
+          howItWorks: 'The user simply held the handle on top and slides up and down to cut. The cutting force relied simply on the weight of the drill press vise and the cutting knife. The bearings and spacers would be dropped through the threaded rods (not modeled here) and the nuts would be used to fix the positions of the bearings. The bearings would help slide the handle up and down.',
+          prototypePlan: 'The mounting table was made by welding 1.25"x1.25" IDx 14-gauge square aluminum tubing to the 14-gauge aluminum sheet metal. The sliding mechanism was made by bending 14-gauge aluminum sheet metal. Aluminum was chosen because it was corrosion-resistant, light, and cheap. Corrosion-resistance was important, especially for food-related applications. All sheet metals were cut to size by laser cutting.',
+          flaws: 'The design needs to use at least 14-gauge sheet metal because it must not deform under constant cutting load. However, most bending machine specs were around 22 gauge. Additionally, welding aluminum was not an easy task. Therefore, I decided to outsource my prototype. When outsourcing, it dawned on me that this design was very expensive to manufacture, and it would be impossible to sell a cutting machine at $300 CAD. Both material and welding labor costs were expensive. As a result, this design was abandoned.'
+        },
+        {
+          id: 'design4v1',
+          title: 'Fourth Design First Prototype',
+          image: '/hardware/chicken-cutting/design4-proto1.jpg',
+          howItWorks: 'Like the third design, the user would use the handle to slide up and down the cutting block. The frames would be made from 2020 aluminum extrusion. The sliding motion would be transferred using a V-Wheel Sliding Tray. Suction cups were screwed at the end to firmly fix the machine to the table.',
+          details: 'The anodized aluminum extrusion was cut to size using a cold cut saw. The 4" mini drill press vise was mounted onto the 3D printed mounting plate. This design was much better compared to all previous designs because it was portable, customizable, easy to machine and assembled. The use of aluminum extrusion prevented the need for welding. The V-Wheel Sliding Tray ensured the smooth sliding motion of the handle while preventing the handle from wobbling. The total manufacturing cost was only $80 CAD.',
+          problems: 'The PETG printed drill press mounting plate broke when I tried cutting a chicken. I might have underestimated the impact force and did not do the static FEA analysis.'
+        },
+        {
+          id: 'design4v2',
+          title: 'Fourth Design Second Prototype (outsourced on Alibaba)',
+          image: '/hardware/chicken-cutting/design4-final.jpg',
+          details: 'The issue of the 3D printed mounting plate breaking called for welding. Welding strength analysis (Shigley Mechanical Design) together with FEA analysis showed that the stress in the weld was around 25 ksi while the aluminum T6 yield strength was 35 ksi. Therefore, the safety factor of 1.4 was good enough in this application. The machine was tested extensively for one week: from cutting chicken bones, to frozen meat and fish and it was able to perform without any issues. With that, production was outsourced in China and the manufacturing cost was now only $55 CAD.'
+        }
+      ]
+    },
+    formulaSAE: {
+      id: 'formulaSAE',
+      title: 'Formula SAE Suspension Rocker',
+      tagline: 'CNC machining of complex 3D geometry for high-performance suspension components with tight tolerances',
+      thumbnail: '/hardware/cnc-formula/figure3-rockers.jpg',
+      problem: 'Machined a front and rear rocker for the suspension systems. The geometry was 3D which posed many challenges. A CAM program in Fusion 360 was set up with steps such as: Facing, 2D and 3D adaptive clearing, parallel and contour passes, and boring.',
+      figureDescriptions: [
+        'Figure 1: Workpiece Clamped In The Custom machine Soft Jaw',
+        'Figure 2: Machined Soft Jaw To Secure The Workpiece',
+        'Figure 3: Front and Rear Rockers After Machining'
+      ],
+      images: [
+        '/hardware/cnc-formula/figure1-clamped-workpiece.jpg',
+        '/hardware/cnc-formula/figure2-soft-jaw.jpg',
+        '/hardware/cnc-formula/figure3-rockers.jpg'
+      ],
+      challenges: [
+        'The geometry had many round corners and was not symmetrical which required some soft jaws to be machined.',
+        'Some bits were not already in the machine so new bits needed to be installed and calibrated into the machine.',
+        'Roughing passes were first run and then the finishing passes for a nice surface finish',
+        'The contour was waterjet which significantly reduced the machining time.',
+        'The bore required an undersize of 0.002-0.005". Therefore, an iterative in-control machining technique was used where the machine took out a little bit of material, the machinist measured the bore, and the process repeated until the tolerance was met. The bore needed to be precise for the needle bearings to be press fitted.'
+      ]
+    },
+    studCuttingMachine: {
+      id: 'studCuttingMachine',
+      title: 'Automatic Stud Cutting Machine',
+      tagline: 'Full-scale automated manufacturing system with PLC controls and pneumatic actuation',
+      thumbnail: '/hardware/stud-cutting/figure1-3d-model.jpg',
+      problem: 'Ngen Squared asked me to design a full-scale automatic stud cutting machine that was easy to use and with a budget of $5000 CAD.',
+      figureDescriptions: [
+        'Figure 1: 3D Model Of The Machine',
+        'Figure 2: 3D Model Of The Controls Hardware',
+        'Figure 3: Schematics Of The Controls System',
+        'Figure 4: Detailed Model Of The Control Hardwares'
+      ],
+      images: [
+        '/hardware/stud-cutting/figure1-3d-model.jpg',
+        '/hardware/stud-cutting/figure2-controls-hardware.jpg',
+        '/hardware/stud-cutting/figure3-schematics.jpg',
+        '/hardware/stud-cutting/figure4-controls-detail.jpg'
+      ],
+      workingMechanism: 'The stud slides purely by gravity utilizing the ball transfer bearings for smooth motion. The stud would induce the proximity sensor which would actuate the pneumatic cylinder to clamp the stud. Depending on the desired cutting length, the actuation time would vary. Finally, the linear ball screw with the cutting saw assembly would move to cut the stud at the precise length.\n\nSince the design relies on gravity as the primary driving force, the table angle was optimized to reduce stud sliding time and minimize clamping delay after actuation, which affects cutting length accuracy.',
+      controlsSystem: 'The control panel ensured safe operations and protected expensive devices from being damaged due to overcurrent. Fuses, relays, MCBs were implemented in the circuit. The pneumatic cylinder would be controlled by the solenoid valve and the pneumatic system which included (air compressor with pressure regulator, airlines, and fittings). PLC Siemens S7-1200 and HMI KTP400 were chosen because of their popularity and compatibility.',
+      feedback: 'Ngen Squared desired to replace the cutting saw with a plasma cutter which was much faster and smoother.'
+    }
+  }
+
+  const videoProjects = {
+    businessCardOCR: {
+      id: 'businessCardOCR',
+      title: 'Business Card Lead Capture Automation',
+      videoId: '9KI3pE7HxJY',
+      embedCode: '<iframe width="315" height="560" src="https://www.youtube.com/embed/9KI3pE7HxJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      description: [
+        'When you meet people at networking events, it\'s easy to forget to log their contact info or it just takes too long to do manually. This automation solves that.',
+        'Just upload or take a photo of a business card. The workflow scans the image using OCR, extracts key details like name, email, and company, then stores everything in a Google Sheet for easy tracking and follow-up.',
+        'Great for founders, sales teams, and anyone who wants to save time and keep their leads organized without lifting a finger.'
+      ],
+      tech: ['n8n', 'CapCut']
+    },
+    aiCallingAgent: {
+      id: 'aiCallingAgent',
+      title: 'AI Calling Agent - The Reality of Selling in 2025',
+      videoId: '5FLuRN2L1Y0',
+      embedCode: '<iframe width="315" height="560" src="https://www.youtube.com/embed/5FLuRN2L1Y0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      description: [
+        'Everyone\'s talking about AI calling agents — and how they\'re making $10K/month selling them. But is it really that easy in 2025?',
+        'In this video, I break down what it\'s actually like to sell AI receptionists to small businesses. Most SMBs are still skeptical. They\'re worried the AI will say something wrong, miss notes, or sound too robotic.',
+        'That\'s why I believe it\'s all about how you position it. Don\'t pitch it as a replacement for their receptionist. Pitch it as a smart backup assistant — a separate line that kicks in after hours or when no one picks up. It never misses a call and helps improve customer experience by being available 24/7.',
+        'I also share a real story of when I needed urgent help at night and no business picked up — and how just one AI-enabled call would\'ve changed everything.'
+      ],
+      tech: ['Bland AI', 'CapCut']
+    },
+    macroFuryAI: {
+      id: 'macroFuryAI',
+      title: 'Macro Fury AI System - Advanced AI Nutrition Coach',
+      videoId: '3WfGV4_iPZI',
+      embedCode: '<iframe width="315" height="560" src="https://www.youtube.com/embed/3WfGV4_iPZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+      description: [
+        'I just built the most advanced AI nutrition coach system you\'ll see in 2025 — and yes, it actually calls me out when I eat junk food.',
+        'I call it the Macro Fury AI System. Here\'s what it can do: I text it what I ate. Or send a voice message. Or even snap a photo of my plate. It instantly recognizes the food, calculates protein, carbs, fat, and calories, and logs it all in my Google Sheets.',
+        'If I eat off-plan, my phone rings — and my AI coach "Brotein Shake" roasts me for my bad choices 💀',
+        'Every night at 9PM, it emails me a full nutrition breakdown and custom tips based on my eating patterns. It runs fully on autopilot. No app. No manual tracking. Just AI doing its thing.'
+      ],
+      tech: ['n8n', 'CapCut']
     }
   }
 
@@ -144,7 +322,21 @@ function App() {
           whileHover={{ scale: 1.5 }}
           className="nav-dot"
         >
-          <span>Projects</span>
+          <span>Software Projects</span>
+        </motion.a>
+        <motion.a 
+          href="#hardware"
+          whileHover={{ scale: 1.5 }}
+          className="nav-dot"
+        >
+          <span>Hardware Projects</span>
+        </motion.a>
+        <motion.a 
+          href="#video-editing"
+          whileHover={{ scale: 1.5 }}
+          className="nav-dot"
+        >
+          <span>Video Editing</span>
         </motion.a>
         <motion.a 
           href="#skills"
@@ -542,7 +734,7 @@ function App() {
           >
             <h2 className="section-title-creative">
               <span className="title-emoji">🚀</span>
-              Projects
+              Software Projects
             </h2>
             <p className="section-subtitle-creative">Built between coffee runs and late-night debugging sessions.</p>
 
@@ -680,32 +872,65 @@ function App() {
                 </div>
               </motion.div>
 
-              {/* Kuwe Platform */}
+              {/* Kuwe Platform - AI Calling Agent Builder */}
               <motion.div 
                 className="project-showcase-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                onClick={() => setSelectedProject(projects.kuwe)}
+                onClick={() => setSelectedProject(projects.kuweCallingAgent)}
               >
                 <div className="project-link">
                   <div className="project-thumbnail">
                     <img 
                       src="https://img.youtube.com/vi/dN1fJF4Ue0c/maxresdefault.jpg" 
-                      alt="Kuwe Platform Demo"
+                      alt="Kuwe AI Calling Agent Builder Demo"
                     />
                     <div className="project-overlay">
                       <div className="play-button">▶ View Details</div>
                     </div>
                   </div>
                   <div className="project-content">
-                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations</h3>
+                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations (Calling Agent Builder)</h3>
                     <p className="project-tagline">
-                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize AI without code.
+                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize AI calling agents without code.
                     </p>
                     <div className="project-tech-tags">
-                      {projects.kuwe.tech.map((tech, index) => (
+                      {projects.kuweCallingAgent.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Kuwe Platform - No-Code Automation Builder */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                onClick={() => setSelectedProject(projects.kuweAutomation)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/frkcBzP6LIc/maxresdefault.jpg" 
+                      alt="Kuwe Automation Builder Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations (Automation Builder)</h3>
+                    <p className="project-tagline">
+                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize workflow automations without code.
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.kuweAutomation.tech.map((tech, index) => (
                         <span key={index}>{tech}</span>
                       ))}
                     </div>
@@ -793,6 +1018,516 @@ function App() {
                   <div dangerouslySetInnerHTML={{ 
                     __html: selectedProject.solution.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
                   }} />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Hardware Projects Showcase */}
+      <section className="projects-showcase hardware-projects" id="hardware">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title-creative">
+              <span className="title-emoji">⚙️</span>
+              Hardware Projects
+            </h2>
+            <p className="section-subtitle-creative">From sketches to prototypes to production-ready designs.</p>
+
+            <div className="projects-grid">
+              {/* Assistive Cutting Machine */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                onClick={() => setSelectedHardwareProject(hardwareProjects.assistiveCuttingMachine)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src={hardwareProjects.assistiveCuttingMachine.thumbnail}
+                      alt="Assistive Cutting Machine"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{hardwareProjects.assistiveCuttingMachine.title}</h3>
+                    <p className="project-tagline">
+                      {hardwareProjects.assistiveCuttingMachine.tagline}
+                    </p>
+                    <div className="project-tech-tags">
+                      <span>Mechanical Design</span>
+                      <span>Rapid Prototyping</span>
+                      <span>Kinematics & Dynamics</span>
+                      <span>Inventor</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Formula SAE Suspension Rocker */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                onClick={() => setSelectedHardwareProject(hardwareProjects.formulaSAE)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src={hardwareProjects.formulaSAE.thumbnail}
+                      alt="Formula SAE Suspension Rocker"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{hardwareProjects.formulaSAE.title}</h3>
+                    <p className="project-tagline">
+                      {hardwareProjects.formulaSAE.tagline}
+                    </p>
+                    <div className="project-tech-tags">
+                      <span>CNC Machining</span>
+                      <span>Fusion 360 CAM</span>
+                      <span>GD&T</span>
+                      <span>Metrology</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Automatic Stud Cutting Machine */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                onClick={() => setSelectedHardwareProject(hardwareProjects.studCuttingMachine)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src={hardwareProjects.studCuttingMachine.thumbnail}
+                      alt="Automatic Stud Cutting Machine"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{hardwareProjects.studCuttingMachine.title}</h3>
+                    <p className="project-tagline">
+                      {hardwareProjects.studCuttingMachine.tagline}
+                    </p>
+                    <div className="project-tech-tags">
+                      <span>PLC Siemens S7-1200</span>
+                      <span>HMI KTP400</span>
+                      <span>Pneumatics</span>
+                      <span>Controls Design</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Hardware Project Modal */}
+      {selectedHardwareProject && (
+        <div className="project-modal-overlay" onClick={() => {
+          setSelectedHardwareProject(null)
+          setExpandedDesign(null)
+        }}>
+          <motion.div
+            className="project-modal hardware-modal"
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 50 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal-close" onClick={() => {
+              setSelectedHardwareProject(null)
+              setExpandedDesign(null)
+            }}>
+              <FaTimes />
+            </button>
+
+            <div className="modal-content">
+              <div className="modal-info">
+                <h2>{selectedHardwareProject.title}</h2>
+                <p className="modal-tagline">{selectedHardwareProject.tagline}</p>
+              </div>
+
+              {/* Problem Section */}
+              <div className="modal-section">
+                <h3>🎯 Problem Statement</h3>
+                <p>{selectedHardwareProject.problem}</p>
+              </div>
+
+              {/* Design Constraints */}
+              {selectedHardwareProject.constraints && (
+                <div className="modal-section">
+                  <h3>📐 Design Constraints</h3>
+                  {typeof selectedHardwareProject.constraints === 'string' ? (
+                    <p>{selectedHardwareProject.constraints}</p>
+                  ) : (
+                    <ul className="constraints-list">
+                      {selectedHardwareProject.constraints.map((constraint, index) => (
+                        <li key={index}>{constraint}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+
+              {/* Images Section with Figure Descriptions (for Formula SAE) */}
+              {selectedHardwareProject.images && selectedHardwareProject.figureDescriptions && (
+                <div className="modal-section">
+                  <h3>📸 Project Media</h3>
+                  <div className="design-images-grid">
+                    {selectedHardwareProject.images.map((img, idx) => (
+                      <div key={idx} className="design-image-with-caption">
+                        <div className="design-image">
+                          <img src={img} alt={selectedHardwareProject.figureDescriptions[idx]} />
+                        </div>
+                        <p className="image-caption">{selectedHardwareProject.figureDescriptions[idx]}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Manufacturing Challenges (for Formula SAE) */}
+              {selectedHardwareProject.challenges && (
+                <div className="modal-section">
+                  <h3>⚙️ Manufacturing Challenges</h3>
+                  <ul className="challenges-list">
+                    {selectedHardwareProject.challenges.map((challenge, index) => (
+                      <li key={index}>{challenge}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Working Mechanism (for Stud Cutting Machine) */}
+              {selectedHardwareProject.workingMechanism && (
+                <div className="modal-section">
+                  <h3>⚙️ Working Mechanism</h3>
+                  <p>{selectedHardwareProject.workingMechanism}</p>
+                </div>
+              )}
+
+              {/* Controls System (for Stud Cutting Machine) */}
+              {selectedHardwareProject.controlsSystem && (
+                <div className="modal-section">
+                  <h3>🎛️ Controls System</h3>
+                  <p>{selectedHardwareProject.controlsSystem}</p>
+                </div>
+              )}
+
+              {/* Feedback (for Stud Cutting Machine) */}
+              {selectedHardwareProject.feedback && (
+                <div className="modal-section">
+                  <h3>💬 Feedback from Ngen Squared</h3>
+                  <p>{selectedHardwareProject.feedback}</p>
+                </div>
+              )}
+
+              {/* Design Solutions - Collapsible (for chicken cutting) */}
+              {selectedHardwareProject.designs && (
+                <div className="modal-section">
+                  <h3>💡 Design Solutions</h3>
+                  <div className="designs-accordion">
+                    {selectedHardwareProject.designs.map((design, index) => (
+                    <div key={design.id} className="design-item">
+                      <button
+                        className={`design-header ${expandedDesign === design.id ? 'expanded' : ''}`}
+                        onClick={() => setExpandedDesign(expandedDesign === design.id ? null : design.id)}
+                      >
+                        <div className="design-title">
+                          <span className="design-number">Design {index + 1}</span>
+                          <span className="design-name">{design.title}</span>
+                        </div>
+                        {expandedDesign === design.id ? <FaMinus /> : <FaPlus />}
+                      </button>
+                      
+                      {expandedDesign === design.id && (
+                        <motion.div
+                          className="design-content"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {design.image && (
+                            <div className="design-image">
+                              <img src={design.image} alt={design.title} />
+                            </div>
+                          )}
+
+                          {design.images && design.images.length > 0 && (
+                            <div className="design-images-grid">
+                              {design.images.map((img, idx) => (
+                                <div key={idx} className="design-image">
+                                  <img src={img} alt={`${design.title} - Image ${idx + 1}`} />
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          
+                          {design.howItWorks && (
+                            <div className="design-section">
+                              <h4>How it works</h4>
+                              <p>{design.howItWorks}</p>
+                            </div>
+                          )}
+
+                          {design.idea && (
+                            <div className="design-section">
+                              <h4>Design Idea</h4>
+                              <p>{design.idea}</p>
+                            </div>
+                          )}
+
+                          {design.designSteps && (
+                            <div className="design-section">
+                              <h4>Design Steps</h4>
+                              <ul>
+                                {design.designSteps.map((step, i) => (
+                                  <li key={i}>{step}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {design.prototype && (
+                            <div className="design-section">
+                              <h4>Prototype</h4>
+                              <p>{design.prototype}</p>
+                            </div>
+                          )}
+
+                          {design.learnings && (
+                            <div className="design-section">
+                              <h4>Key Learnings</h4>
+                              <ul>
+                                {design.learnings.map((learning, i) => (
+                                  <li key={i}>{learning}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {design.prototypePlan && (
+                            <div className="design-section">
+                              <h4>Prototype Plan</h4>
+                              <p>{design.prototypePlan}</p>
+                            </div>
+                          )}
+
+                          {design.flaws && (
+                            <div className="design-section">
+                              <h4>Design Flaws and Obstacles</h4>
+                              <p>{design.flaws}</p>
+                            </div>
+                          )}
+
+                          {design.details && (
+                            <div className="design-section">
+                              <h4>Details</h4>
+                              <p>{design.details}</p>
+                            </div>
+                          )}
+
+                          {design.problems && (
+                            <div className="design-section">
+                              <h4>Problems while testing</h4>
+                              <p>{design.problems}</p>
+                            </div>
+                          )}
+                        </motion.div>
+                      )}
+                    </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Video Editing Projects */}
+      <section className="projects-showcase video-editing-section" id="video-editing">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title-creative">
+              <span className="title-emoji">🎬</span>
+              Video Editing Projects
+            </h2>
+            <p className="section-subtitle-creative">Short-form content creation with CapCut</p>
+
+            <div className="projects-grid">
+              {/* Business Card Lead Capture Automation Video */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                onClick={() => setSelectedVideoProject(videoProjects.businessCardOCR)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/9KI3pE7HxJY/maxresdefault.jpg"
+                      alt="Business Card Lead Capture Automation"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{videoProjects.businessCardOCR.title}</h3>
+                    <p className="project-tagline">
+                      {videoProjects.businessCardOCR.description[0]}
+                    </p>
+                    <div className="project-tech-tags">
+                      {videoProjects.businessCardOCR.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Calling Agent Video */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                onClick={() => setSelectedVideoProject(videoProjects.aiCallingAgent)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/5FLuRN2L1Y0/maxresdefault.jpg"
+                      alt="AI Calling Agent - The Reality of Selling in 2025"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{videoProjects.aiCallingAgent.title}</h3>
+                    <p className="project-tagline">
+                      {videoProjects.aiCallingAgent.description[0]}
+                    </p>
+                    <div className="project-tech-tags">
+                      {videoProjects.aiCallingAgent.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Macro Fury AI System Video */}
+              <motion.div
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                onClick={() => setSelectedVideoProject(videoProjects.macroFuryAI)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/3WfGV4_iPZI/maxresdefault.jpg"
+                      alt="Macro Fury AI System - Advanced AI Nutrition Coach"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>{videoProjects.macroFuryAI.title}</h3>
+                    <p className="project-tagline">
+                      {videoProjects.macroFuryAI.description[0]}
+                    </p>
+                    <div className="project-tech-tags">
+                      {videoProjects.macroFuryAI.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video Project Modal */}
+      {selectedVideoProject && (
+        <div className="project-modal-overlay" onClick={() => setSelectedVideoProject(null)}>
+          <motion.div
+            className="project-modal video-modal"
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 50 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal-close" onClick={() => setSelectedVideoProject(null)}>
+              <FaTimes />
+            </button>
+
+            <div className="modal-content">
+              <div className="modal-info">
+                <h2>{selectedVideoProject.title}</h2>
+              </div>
+
+              <div className="modal-video-vertical">
+                <div
+                  className="video-wrapper-vertical"
+                  dangerouslySetInnerHTML={{ __html: selectedVideoProject.embedCode }}
+                />
+              </div>
+
+              <div className="modal-info">
+                <div className="modal-tech-tags">
+                  {selectedVideoProject.tech.map((tech, index) => (
+                    <span key={index}>{tech}</span>
+                  ))}
+                </div>
+
+                <div className="modal-section">
+                  <h3>📝 About This Project</h3>
+                  {selectedVideoProject.description.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
                 </div>
               </div>
             </div>
