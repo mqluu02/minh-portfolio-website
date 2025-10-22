@@ -5,8 +5,8 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const navItems = [
   { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Software' },
   { href: '#hardware', label: 'Hardware' },
+  { href: '#projects', label: 'Software' },
   { href: '#video-editing', label: 'Videos' },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' }

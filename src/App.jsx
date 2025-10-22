@@ -410,7 +410,7 @@ function App() {
               transition={{ delay: 1, duration: 0.8 }}
             >
               <FaMapMarkerAlt />
-              <span>Toronto, Canada</span>
+              <span>Edmonton, AB</span>
             </motion.div>
           </motion.div>
 
@@ -471,22 +471,8 @@ function App() {
                       className="opportunity-item"
                       whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
                     >
-                      <span className="opportunity-icon">🚀</span>
-                      <span>Product Manager Associate</span>
-                    </motion.div>
-                    <motion.div 
-                      className="opportunity-item"
-                      whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
-                    >
-                      <span className="opportunity-icon">💻</span>
-                      <span>Application EIT</span>
-                    </motion.div>
-                    <motion.div 
-                      className="opportunity-item"
-                      whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
-                    >
-                      <span className="opportunity-icon">🤖</span>
-                      <span>Software Engineer Intern</span>
+                      <span className="opportunity-icon">⚙️</span>
+                      <span>Mechanical EIT</span>
                     </motion.div>
                     <motion.div 
                       className="opportunity-item"
@@ -499,8 +485,15 @@ function App() {
                       className="opportunity-item"
                       whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
                     >
-                      <span className="opportunity-icon">⚙️</span>
-                      <span>Mechanical EIT</span>
+                      <span className="opportunity-icon">💻</span>
+                      <span>Application EIT</span>
+                    </motion.div>
+                    <motion.div 
+                      className="opportunity-item"
+                      whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.2)" }}
+                    >
+                      <span className="opportunity-icon">🚀</span>
+                      <span>Product Manager Associate</span>
                     </motion.div>
                   </div>
                 </div>
@@ -732,307 +725,6 @@ function App() {
           </motion.div>
         </div>
       </section>
-
-      {/* Projects Showcase */}
-      <section className="projects-showcase" id="projects">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="section-title-creative">
-              <span className="title-emoji">🚀</span>
-              Software Projects
-            </h2>
-            <p className="section-subtitle-creative">Proudly sponsored by way too many cups of coffee ☕</p>
-
-            <div className="projects-grid">
-              
-              {/* Kuwe Platform - AI Calling Agent Builder */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                onClick={() => setSelectedProject(projects.kuweCallingAgent)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/dN1fJF4Ue0c/maxresdefault.jpg" 
-                      alt="Kuwe AI Calling Agent Builder Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations (Calling Agent Builder)</h3>
-                    <p className="project-tagline">
-                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize AI calling agents without code.
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.kuweCallingAgent.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Kuwe Platform - No-Code Automation Builder */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                onClick={() => setSelectedProject(projects.kuweAutomation)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/frkcBzP6LIc/maxresdefault.jpg" 
-                      alt="Kuwe Automation Builder Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations (Automation Builder)</h3>
-                    <p className="project-tagline">
-                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize workflow automations without code.
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.kuweAutomation.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* AI Receptionist - Square */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                onClick={() => setSelectedProject(projects.square)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/3gKAFtXAQ4Q/maxresdefault.jpg" 
-                      alt="AI Receptionist Square Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>AI Phone Receptionist - Square</h3>
-                    <p className="project-tagline">
-                      24/7 AI Receptionist that answers calls, understands "next Friday at 5", and books into Square Appointments
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.square.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* AI Receptionist - ResOS */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                onClick={() => setSelectedProject(projects.resos)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/Gip6iQEK8uk/maxresdefault.jpg" 
-                      alt="AI Receptionist ResOS Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>AI Phone Receptionist - ResOS</h3>
-                    <p className="project-tagline">
-                      24/7 AI Receptionist that answers calls, understands "tomorrow at 7", and books into ResOS (restaurant reservation software)
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.resos.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Chatbot - Nail Salon */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                onClick={() => setSelectedProject(projects.chatbot)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/3wIskqnjIq8/maxresdefault.jpg" 
-                      alt="Chatbot Nail Salon Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>Smart Booking Chatbot</h3>
-                    <p className="project-tagline">
-                      Voiceflow chatbot with live availability checking and real-time Square booking integration
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.chatbot.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CNC Monitoring */}
-              <motion.div 
-                className="project-showcase-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                onClick={() => setSelectedProject(projects.cnc)}
-              >
-                <div className="project-link">
-                  <div className="project-thumbnail">
-                    <img 
-                      src="https://img.youtube.com/vi/KCIsbTH4HuA/maxresdefault.jpg" 
-                      alt="CNC Monitoring System Demo"
-                    />
-                    <div className="project-overlay">
-                      <div className="play-button">▶ View Details</div>
-                    </div>
-                  </div>
-                  <div className="project-content">
-                    <h3>AI CNC Monitoring System</h3>
-                    <p className="project-tagline">
-                      Remote machine monitoring with real-time alerts, video feeds, and incident logging for shop owners
-                    </p>
-                    <div className="project-tech-tags">
-                      {projects.cnc.tech.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <div className="project-modal-overlay" onClick={() => setSelectedProject(null)}>
-          <motion.div 
-            className="project-modal"
-            initial={{ opacity: 0, scale: 0.9, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button className="modal-close" onClick={() => setSelectedProject(null)}>
-              <FaTimes />
-            </button>
-
-            <div className="modal-content">
-              {/* Project Info Header */}
-              <div className="modal-info">
-                <h2>{selectedProject.title}</h2>
-                <p className="modal-tagline">{selectedProject.tagline}</p>
-
-                {selectedProject.website && (
-                  <a 
-                    href={selectedProject.website} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-website-link"
-                  >
-                    🌐 Visit Website: {selectedProject.website}
-                  </a>
-                )}
-
-                <div className="modal-tech-tags">
-                  {selectedProject.tech.map((tech, index) => (
-                    <span key={index}>{tech}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Video Embed(s) */}
-              {selectedProject.isMultiVideo ? (
-                <div className="modal-multi-videos">
-                  {selectedProject.videos.map((video, index) => (
-                    <div key={index} className="modal-video-section">
-                      <h3 className="video-section-title">{video.title}</h3>
-                      <p className="video-section-description">{video.description}</p>
-                      <div className="modal-video">
-                        <div 
-                          className="video-wrapper"
-                          dangerouslySetInnerHTML={{ __html: video.embedCode }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="modal-video">
-                  <div 
-                    className="video-wrapper"
-                    dangerouslySetInnerHTML={{ __html: selectedProject.embedCode }}
-                  />
-                </div>
-              )}
-
-              {/* Problem & Solution */}
-              <div className="modal-info">
-                <div className="modal-section">
-                  <h3>🎯 Problem</h3>
-                  <p>{selectedProject.problem}</p>
-                </div>
-
-                <div className="modal-section">
-                  <h3>💡 Solution</h3>
-                  <div dangerouslySetInnerHTML={{ 
-                    __html: selectedProject.solution.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
-                  }} />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      )}
 
       {/* Hardware Projects Showcase */}
       <section className="projects-showcase hardware-projects" id="hardware">
@@ -1535,6 +1227,307 @@ function App() {
                   </div>
                 </div>
               )}
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Software Projects Showcase */}
+      <section className="projects-showcase" id="projects">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title-creative">
+              <span className="title-emoji">🚀</span>
+              Software Projects
+            </h2>
+            <p className="section-subtitle-creative">Proudly sponsored by way too many cups of coffee ☕</p>
+
+            <div className="projects-grid">
+              
+              {/* Kuwe Platform - AI Calling Agent Builder */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                onClick={() => setSelectedProject(projects.kuweCallingAgent)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/dN1fJF4Ue0c/maxresdefault.jpg" 
+                      alt="Kuwe AI Calling Agent Builder Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations (Calling Agent Builder)</h3>
+                    <p className="project-tagline">
+                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize AI calling agents without code.
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.kuweCallingAgent.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Kuwe Platform - No-Code Automation Builder */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                onClick={() => setSelectedProject(projects.kuweAutomation)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/frkcBzP6LIc/maxresdefault.jpg" 
+                      alt="Kuwe Automation Builder Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>Kuwe Platform: The Shopify for AI Agents & Automations (Automation Builder)</h3>
+                    <p className="project-tagline">
+                      Shopify democratized e-commerce for millions of merchants. We\'re doing the same for AI automation - enabling anyone to build, deploy, and monetize workflow automations without code.
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.kuweAutomation.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Receptionist - Square */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                onClick={() => setSelectedProject(projects.square)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/3gKAFtXAQ4Q/maxresdefault.jpg" 
+                      alt="AI Receptionist Square Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>AI Phone Receptionist - Square</h3>
+                    <p className="project-tagline">
+                      24/7 AI Receptionist that answers calls, understands "next Friday at 5", and books into Square Appointments
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.square.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Receptionist - ResOS */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                onClick={() => setSelectedProject(projects.resos)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/Gip6iQEK8uk/maxresdefault.jpg" 
+                      alt="AI Receptionist ResOS Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>AI Phone Receptionist - ResOS</h3>
+                    <p className="project-tagline">
+                      24/7 AI Receptionist that answers calls, understands "tomorrow at 7", and books into ResOS (restaurant reservation software)
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.resos.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Chatbot - Nail Salon */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                onClick={() => setSelectedProject(projects.chatbot)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/3wIskqnjIq8/maxresdefault.jpg" 
+                      alt="Chatbot Nail Salon Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>Smart Booking Chatbot</h3>
+                    <p className="project-tagline">
+                      Voiceflow chatbot with live availability checking and real-time Square booking integration
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.chatbot.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* CNC Monitoring */}
+              <motion.div 
+                className="project-showcase-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                onClick={() => setSelectedProject(projects.cnc)}
+              >
+                <div className="project-link">
+                  <div className="project-thumbnail">
+                    <img 
+                      src="https://img.youtube.com/vi/KCIsbTH4HuA/maxresdefault.jpg" 
+                      alt="CNC Monitoring System Demo"
+                    />
+                    <div className="project-overlay">
+                      <div className="play-button">▶ View Details</div>
+                    </div>
+                  </div>
+                  <div className="project-content">
+                    <h3>AI CNC Monitoring System</h3>
+                    <p className="project-tagline">
+                      Remote machine monitoring with real-time alerts, video feeds, and incident logging for shop owners
+                    </p>
+                    <div className="project-tech-tags">
+                      {projects.cnc.tech.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Software Project Modal */}
+      {selectedProject && (
+        <div className="project-modal-overlay" onClick={() => setSelectedProject(null)}>
+          <motion.div 
+            className="project-modal"
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 50 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal-close" onClick={() => setSelectedProject(null)}>
+              <FaTimes />
+            </button>
+
+            <div className="modal-content">
+              {/* Project Info Header */}
+              <div className="modal-info">
+                <h2>{selectedProject.title}</h2>
+                <p className="modal-tagline">{selectedProject.tagline}</p>
+
+                {selectedProject.website && (
+                  <a 
+                    href={selectedProject.website} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-website-link"
+                  >
+                    🌐 Visit Website: {selectedProject.website}
+                  </a>
+                )}
+
+                <div className="modal-tech-tags">
+                  {selectedProject.tech.map((tech, index) => (
+                    <span key={index}>{tech}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Video Embed(s) */}
+              {selectedProject.isMultiVideo ? (
+                <div className="modal-multi-videos">
+                  {selectedProject.videos.map((video, index) => (
+                    <div key={index} className="modal-video-section">
+                      <h3 className="video-section-title">{video.title}</h3>
+                      <p className="video-section-description">{video.description}</p>
+                      <div className="modal-video">
+                        <div 
+                          className="video-wrapper"
+                          dangerouslySetInnerHTML={{ __html: video.embedCode }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="modal-video">
+                  <div 
+                    className="video-wrapper"
+                    dangerouslySetInnerHTML={{ __html: selectedProject.embedCode }}
+                  />
+                </div>
+              )}
+
+              {/* Problem & Solution */}
+              <div className="modal-info">
+                <div className="modal-section">
+                  <h3>🎯 Problem</h3>
+                  <p>{selectedProject.problem}</p>
+                </div>
+
+                <div className="modal-section">
+                  <h3>💡 Solution</h3>
+                  <div dangerouslySetInnerHTML={{ 
+                    __html: selectedProject.solution.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+                  }} />
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
